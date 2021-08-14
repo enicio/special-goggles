@@ -8,6 +8,6 @@ app.use(express.json());
 
 app.listen(PORT, () => console.log(`ouvindo porta ${PORT}!`));
 
-app.use(require('./src/router'));
+app.use(require('./src/routes'));
 
 module.exports = app;

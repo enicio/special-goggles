@@ -6,14 +6,14 @@ const {
   unitValidateFields,
   companyValidateFields,
   assetValidateFields
-} = require('./middleware');
+} = require('../middleware');
 
 const {
   userController,
   assetController,
   companyController,
   unitController,
-} = require('./controllers');
+} = require('../controllers');
 
 
 router.get('/', (req, res) => {
