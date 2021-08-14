@@ -5,7 +5,8 @@ const {
   userValidateFields,
   unitValidateFields,
   companyValidateFields,
-  assetValidateFields
+  assetValidateFields,
+  upload,
 } = require('../middleware');
 
 const {
@@ -20,12 +21,26 @@ router.get('/', (req, res) => {
   response.send('kombi!');
 });
 
-router.post('/users', userValidateFields, userExist, userController.createUser);
+router.post('/users',
+  userValidateFields,
+  userExist,
+  userController.createUser
+);
 
-router.post('/assets', assetValidateFields, assetController.createAsset);
+router.post('/assets',
+  // assetValidateFields,
+  upload.single('image'),
+  assetController.createAsset
+);
 
-router.post('/companies', companyValidateFields, companyController.createCompany);
+router.post('/companies',
+  companyValidateFields,
+  companyController.createCompany
+);
 
-router.post('/units', unitValidateFields, unitController.createUnit);
+router.post('/units',
+  unitValidateFields,
+  unitController.createUnit
+);
 
 module.exports = router;
