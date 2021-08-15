@@ -6,7 +6,7 @@ const multerS3 = require('multer-s3');
 
 // eslint-disable-next-line no-magic-numbers
 const FILE_SIZE = 2*1024*1024;
-const LENGTH = 16;
+const NUMBER_OF_BYTES = 16;
 
 const storageTypes = {
   local: multer.diskStorage({
@@ -14,7 +14,7 @@ const storageTypes = {
       cb(null, path.resolve(__dirname, '..', '..', 'uploads'));
     },
     filename: (req, file, cb) => {
-      crypto.randomBytes(LENGTH, (err, hash) => {
+      crypto.randomBytes(NUMBER_OF_BYTES, (err, hash) => {
         if (err) cb(err);
 
         file.key = `${hash.toString('hex')}-${file.originalname}`;
@@ -29,7 +29,7 @@ const storageTypes = {
     contentType: multerS3.AUTO_CONTENT_TYPE,
     acl: 'public-read',
     key: (req, file, cb) => {
-      crypto.randomBytes(LENGTH, (err, hash) => {
+      crypto.randomBytes(NUMBER_OF_BYTES, (err, hash) => {
         if (err) cb(err);
 
         const fileName = `${hash.toString('hex')}-${file.originalname}`;
