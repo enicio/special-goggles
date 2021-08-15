@@ -9,6 +9,7 @@
     "lint": "eslint --no-inline-config --no-error-on-unmatched-pattern -c .eslintrc.json ."
   },
   "dependencies": {
+    "aws-sdk": "^2.968.0",
     "crypto": "^1.0.1",
     "dotenv": "^10.0.0",
     "express": "^4.17.1",
@@ -16,6 +17,7 @@
     "joy": "^0.1.1",
     "mongodb": "^4.1.0",
     "multer": "^1.4.3",
+    "multer-s3": "^2.9.0",
     "nodemon": "^2.0.12"
   },
   "devDependencies": {

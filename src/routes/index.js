@@ -6,7 +6,7 @@ const {
   unitValidateFields,
   companyValidateFields,
   assetValidateFields,
-  upload,
+  // upload,
 } = require('../middleware');
 
 const {
@@ -16,9 +16,11 @@ const {
   unitController,
 } = require('../controllers');
 
+const upload = require('../middleware/uploadsRKT');
+
 
 router.get('/', (req, res) => {
-  response.send('kombi!');
+  res.send('kombi!');
 });
 
 router.post('/users',
