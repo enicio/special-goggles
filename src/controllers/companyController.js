@@ -10,4 +10,9 @@ async function createCompany(req, res) {
   res.status(CREATE_STATUS).send(result);
 }
 
-module.exports = { createCompany };
+async function getAllCompany(req, res) {
+  const result = await companyService.getAllCompany();
+  res.status(RESPONSE_STATUS).send(result);
+}
+
+module.exports = { createCompany, getAllCompany };

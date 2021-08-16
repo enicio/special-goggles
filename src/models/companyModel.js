@@ -12,4 +12,14 @@ async function createCompany(company) {
   }
 }
 
-module.exports = { createCompany };
+async function getAllCompany() {
+  try {
+    const result = await connection()
+      .then((db) => db.collection('companies').find().toArray());
+    return result;
+  } catch (e) {
+    console.log(e);
+  }
+}
+
+module.exports = { createCompany, getAllCompany };

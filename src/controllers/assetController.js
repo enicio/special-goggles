@@ -5,7 +5,7 @@ const RESPONSE_STATUS = 200;
 
 async function createAsset(req, res) {
   let { dados } = req.body;
-  console.log(req.file);
+  console.log('Body', req.body);
   const { key, destination, location } = req.file;
   // console.log(req.imagePath);
   let urlImage = '';

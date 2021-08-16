@@ -6,4 +6,10 @@ async function createCompany(assets) {
   return result;
 }
 
-module.exports = { createCompany };
+async function getAllCompany() {
+  const result = await companyModel.getAllCompany();
+  console.log('on service', result);
+  return result;
+}
+
+module.exports = { createCompany, getAllCompany };

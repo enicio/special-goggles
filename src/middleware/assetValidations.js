@@ -35,6 +35,7 @@ const schema = Joi.object({
 });
 
 function assetValidateFields(req, res, next) {
+  console.log(req);
   const { model, name, status, health, image, unitId, companyId } = req.body;
   const validateData = schema
     .validate({ model, name, status, health, image, unitId, companyId });

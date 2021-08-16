@@ -6,7 +6,7 @@ const {
   unitValidateFields,
   companyValidateFields,
   assetValidateFields,
-  // upload,
+  upload,
 } = require('../middleware');
 
 const {
@@ -16,7 +16,7 @@ const {
   unitController,
 } = require('../controllers');
 
-const upload = require('../middleware/uploadsRKT');
+// const upload = require('../middleware/uploadsRKT');
 
 
 router.get('/', (req, res) => {
@@ -39,6 +39,7 @@ router.post('/companies',
   companyValidateFields,
   companyController.createCompany
 );
+router.get('/companies', companyController.getAllCompany);
 
 router.post('/units',
   unitValidateFields,

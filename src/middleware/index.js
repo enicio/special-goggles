@@ -3,7 +3,7 @@ const assetValidateFields = require('./assetValidations');
 const companyValidateFields = require('./companyValidations');
 const unitValidateFields = require('./unitValidations');
 const userExist = require('./checkUser');
-const upload = require('./uploads');
+const upload = require('./upload');
 
 module.exports = {
   assetValidateFields,
