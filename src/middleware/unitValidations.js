@@ -8,8 +8,8 @@ const schema = Joi.object({
     .min(MIN_LENGTH)
     .message('"Name" is a required filed')
     .required(),
-  companyId: Joi.number()
-    .integer()
+  companyId: Joi.string()
+    .min(MIN_LENGTH)
     .message('"companyId" is required')
     .required(),
 });

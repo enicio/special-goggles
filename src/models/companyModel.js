@@ -1,4 +1,5 @@
 const connection = require('./connection');
+const { getAll } = require('../utils/utils');
 const { ObjectId } = require('mongodb');
 
 async function createCompany(company) {
@@ -13,13 +14,8 @@ async function createCompany(company) {
 }
 
 async function getAllCompany() {
-  try {
-    const result = await connection()
-      .then((db) => db.collection('companies').find().toArray());
-    return result;
-  } catch (e) {
-    console.log(e);
-  }
+  const result =  getAll('companies');
+  return result;
 }
 
 module.exports = { createCompany, getAllCompany };
