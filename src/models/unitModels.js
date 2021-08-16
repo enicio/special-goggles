@@ -1,5 +1,6 @@
 const connection = require('./connection');
 const { ObjectId } = require('mongodb');
+const { getAll } = require('../utils/utils');
 
 async function createUnit(unit) {
   try {
@@ -11,4 +12,9 @@ async function createUnit(unit) {
   }
 }
 
-module.exports = { createUnit };
+async function getAllUnit() {
+  const result =  getAll('units');
+  return result;
+}
+
+module.exports = { createUnit, getAllUnit };

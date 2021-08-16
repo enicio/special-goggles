@@ -45,5 +45,6 @@ router.post('/units',
   unitValidateFields,
   unitController.createUnit
 );
+router.get('/units', unitController.getAllUnit);
 
 module.exports = router;

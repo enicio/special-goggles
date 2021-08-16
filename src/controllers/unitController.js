@@ -10,4 +10,9 @@ async function createUnit(req, res) {
   res.status(CREATE_STATUS).send(result);
 }
 
-module.exports = { createUnit };
+async function getAllUnit(req, res) {
+  const result = await unitService.getAllUnit();
+  res.status(RESPONSE_STATUS).send(result);
+}
+
+module.exports = { createUnit, getAllUnit };

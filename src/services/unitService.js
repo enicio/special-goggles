@@ -6,4 +6,10 @@ async function createUnit(unit) {
   return result;
 }
 
-module.exports = { createUnit };
+async function getAllUnit() {
+  const result = await unitModel.getAllUnit();
+  console.log('on service', result);
+  return result;
+}
+
+module.exports = { createUnit, getAllUnit };
