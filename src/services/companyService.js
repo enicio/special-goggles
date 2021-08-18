@@ -8,7 +8,6 @@ async function createCompany(assets) {
 
 async function getAllCompany() {
   const result = await companyModel.getAllCompany();
-  console.log('on service', result);
   return result;
 }
 

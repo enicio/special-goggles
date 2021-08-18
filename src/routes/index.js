@@ -18,7 +18,6 @@ const {
 
 // const upload = require('../middleware/uploadsRKT');
 
-
 router.get('/', (req, res) => {
   res.send('kombi!');
 });
@@ -35,6 +34,9 @@ router.post('/assets',
   assetController.createAsset
 );
 
+router.get('/assets', assetController.getAllAssets);
+router.get('/assets/:unitid', assetController.findByUnitId);
+
 router.post('/companies',
   companyValidateFields,
   companyController.createCompany
@@ -46,5 +48,6 @@ router.post('/units',
   unitController.createUnit
 );
 router.get('/units', unitController.getAllUnit);
+router.get('/units/:companyid', unitController.getUnitByCompanyId);
 
 module.exports = router;

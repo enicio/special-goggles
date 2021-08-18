@@ -6,4 +6,17 @@ async function createAsset(assets) {
   return result;
 }
 
-module.exports = { createAsset };
+async function getAllAssets(assets) {
+  const result = await assetModel.getAllAssets(assets);
+  console.log('on service', result);
+  return result;
+}
+
+async function findByUnitId(unitid) {
+  const result = await assetModel.findByUnitId(unitid);
+  console.log('on service', result);
+  return result;
+}
+
+
+module.exports = { createAsset, getAllAssets, findByUnitId };

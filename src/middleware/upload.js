@@ -1,3 +1,6 @@
+// Código retirado deste repositório
+//https://github.com/rocketseat-content/youtube-upload-nodejs-reactjs-backend/blob/master/src/config/multer.js
+
 const multer = require('multer');
 const path = require('path');
 const crypto = require('crypto');

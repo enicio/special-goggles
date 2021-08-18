@@ -17,4 +17,11 @@ async function getAllUnit() {
   return result;
 }
 
-module.exports = { createUnit, getAllUnit };
+async function getUnitByCompanyId(companyId) {
+  const result = await connection()
+    .then( db => db.collection('units')
+      .find({ 'companyId': companyId }).toArray());
+  return result;
+}
+
+module.exports = { createUnit, getAllUnit, getUnitByCompanyId };
