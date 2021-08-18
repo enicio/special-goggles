@@ -27,6 +27,7 @@ router.post('/users',
   userExist,
   userController.createUser
 );
+router.get('/users', userController.getAllUsers);
 
 router.post('/assets',
   // assetValidateFields,

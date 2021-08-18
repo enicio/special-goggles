@@ -1,4 +1,5 @@
 const connection = require('./connection');
+const { getAll }= require('../utils/utils');
 const { ObjectId } = require('mongodb');
 
 async function createUser(user) {
@@ -22,4 +23,9 @@ async function findByEmail(email) {
   }
 };
 
-module.exports = { createUser, findByEmail };
+async function getAllUsers() {
+  const result =  getAll('users');
+  return result;
+}
+
+module.exports = { createUser, findByEmail, getAllUsers };

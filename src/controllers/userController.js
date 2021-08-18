@@ -10,4 +10,9 @@ async function createUser(req, res) {
   res.status(CREATE_STATUS).send(result);
 }
 
-module.exports = { createUser };
+async function getAllUsers(req, res) {
+  const result = await userService.getAllUsers();
+  res.status(RESPONSE_STATUS).send(result);
+}
+
+module.exports = { createUser, getAllUsers };

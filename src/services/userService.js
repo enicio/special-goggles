@@ -11,4 +11,9 @@ async function findByEmail(email) {
   return isEmail;
 }
 
-module.exports = { createUser, findByEmail };
+async function getAllUsers() {
+  const result = await userModel.getAllUsers();
+  return result;
+}
+
+module.exports = { createUser, findByEmail, getAllUsers };
