@@ -9,5 +9,16 @@ async function getAll(collection) {
   }
 }
 
+const PORCENTO =  100;
 
-module.exports = { getAll };
+function fakeHealth() {
+  return Math.random().toFixed(1) * PORCENTO;
+}
+
+function fakeStatus(min, max) {
+  const status = ['Running', 'Alerting', 'Stopped'];
+  const position = Math.random() * (max - min) + min;
+  return status[position];
+}
+
+module.exports = { getAll, fakeHealth, fakeHealth, fakeStatus };

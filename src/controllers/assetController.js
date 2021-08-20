@@ -1,8 +1,10 @@
 const assetService =  require('../services/assetService');
+const { fakeHealth, fakeStatus } = require('../utils/utils');
 
 const CREATE_STATUS = 201;
 const RESPONSE_STATUS = 200;
-const NORMAL =  100;
+const MIN = 1;
+const MAX = 3;
 
 async function createAsset(req, res) {
   let { data } = req.body;
@@ -14,8 +16,8 @@ async function createAsset(req, res) {
   }
   let asset  = JSON.parse(data);
   asset = {...asset,
-    status: 'Alerting',
-    health: Math.random().toFixed(1) * NORMAL,
+    status: fakeStatus(MIN, MAX),
+    health:fakeHealth(),
     image: urlImage
   };
   await assetService.createAsset(asset);
