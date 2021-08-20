@@ -3,8 +3,8 @@ const { fakeHealth, fakeStatus } = require('../utils/utils');
 
 const CREATE_STATUS = 201;
 const RESPONSE_STATUS = 200;
-const MIN = 1;
-const MAX = 3;
+const MIN = 0;
+const MAX = 2;
 
 async function createAsset(req, res) {
   let { data } = req.body;
