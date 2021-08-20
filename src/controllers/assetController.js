@@ -9,7 +9,6 @@ const MAX = 2;
 async function createAsset(req, res) {
   let { data } = req.body;
   let urlImage = '';
-
   if ( req.file) {
     const { key, location } = req.file;
     (location)? urlImage = location : urlImage = `http://localhost:5000/images/${key}`;

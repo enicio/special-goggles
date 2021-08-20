@@ -17,7 +17,7 @@ function fakeHealth() {
 
 function fakeStatus(min, max) {
   const status = ['Running', 'Alerting', 'Stopped'];
-  const position = Math.random() * (max - min) + min;
+  const position = Math.floor(Math.random() * (max - min)) + min;
   return status[position];
 }
 
