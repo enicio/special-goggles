@@ -59,7 +59,7 @@ async function deleteAsset(assetid) {
   try {
     const isDelete = await connection()
       .then((db) => db.collection('assets')
-        .delteOne({_id:ObjectId(assetid)}));
+        .deleteOne({_id:ObjectId(assetid)}));
     return isDelete;
   } catch (error) {
     console.log(error);
