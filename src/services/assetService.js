@@ -27,7 +27,7 @@ async function updateAsset({ assetid, asset }) {
   return result;
 }
 
-async function deleteAsset({ assetid }) {
+async function deleteAsset(assetid) {
   const result = await assetModel.deleteAsset(assetid);
   return result;
 }
