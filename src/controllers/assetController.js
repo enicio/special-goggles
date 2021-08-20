@@ -33,4 +33,22 @@ async function findByUnitId(req, res) {
   res.status(RESPONSE_STATUS).send(result);
 }
 
-module.exports = { createAsset, getAllAssets, findByUnitId };
+async function findAssetId(req, res) {
+  const { assetid } = req.params;
+  console.log(assetid);
+  const result = await assetService.findAssetId(assetid);
+  res.status(RESPONSE_STATUS).send(result);
+}
+
+async function updateAsset(req, res) {
+  // console.log(req.params);
+  const { assetid } = req.params;
+  const asset = req.body;
+  // console.log(asset);
+  const result = await assetService.updateAsset({assetid, asset});
+  res.status(CREATE_STATUS).send(result);
+}
+
+
+
+module.exports = { createAsset, getAllAssets, findByUnitId, findAssetId, updateAsset };

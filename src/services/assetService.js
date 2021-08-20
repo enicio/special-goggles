@@ -18,5 +18,14 @@ async function findByUnitId(unitid) {
   return result;
 }
 
+async function findAssetId(assetid) {
+  const result = await assetModel.findAssetId(assetid);
+  return result;
+}
 
-module.exports = { createAsset, getAllAssets, findByUnitId };
+async function updateAsset({assetid, asset}) {
+  const result = await assetModel.updateAsset({assetid, asset});
+  return result;
+}
+
+module.exports = { createAsset, getAllAssets, findByUnitId, findAssetId, updateAsset };

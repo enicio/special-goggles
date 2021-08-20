@@ -36,7 +36,10 @@ router.post('/assets',
 );
 
 router.get('/assets', assetController.getAllAssets);
-router.get('/assets/:unitid', assetController.findByUnitId);
+router.get('/assets/:assetid', assetController.findAssetId);
+router.get('/assets/unit/:unitid', assetController.findByUnitId);
+router.put('/assets/:assetid', assetController.updateAsset);
+
 
 router.post('/companies',
   companyValidateFields,

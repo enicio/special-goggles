@@ -31,4 +31,28 @@ async function findByUnitId(unitid) {
   }
 };
 
-module.exports = { createAsset, getAllAssets, findByUnitId };
+async function findAssetId(assetid) {
+  try {
+    const IsAsset = connection()
+      .then((db) => db.collection('assets')
+        .findOne( {_id:ObjectId(assetid)} ))
+      .then((result) => result );
+    return IsAsset;
+  } catch (e) {
+    console.log(e);
+  }
+};
+
+async function updateAsset({ assetid, asset}) {
+  console.log('Model', assetid);
+  try {
+    const update = await connection()
+      .then((db) => db.collection('assets')
+        .updateOne({_id: ObjectId(assetid)}, {$set: asset }));
+    return update;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+module.exports = { createAsset, getAllAssets, findByUnitId, findAssetId, updateAsset };

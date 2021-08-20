@@ -9,15 +9,15 @@ const schema = Joi.object({
     .message('"Name" is a required filed')
     .required(),
   email: Joi.string()
-    .email({ minDomainSegments: 2, tlds: { allow: ['com', 'net'] } })
+    .email({ minDomainSegments: 2, tlds: false })
     .message('"email" must be a valid email')
     .required(),
-  unitId: Joi.number()
-    .integer()
+  unitId: Joi.string()
+    .min(MIN_LENGTH)
     .message('"unitId" is required')
     .required(),
-  companyId: Joi.number()
-    .integer()
+  companyId: Joi.string()
+    .min(MIN_LENGTH)
     .message('"companyId" is required')
     .required(),
 });
