@@ -39,7 +39,7 @@ router.get('/assets', assetController.getAllAssets);
 router.get('/assets/:assetid', assetController.findAssetId);
 router.get('/assets/unit/:unitid', assetController.findByUnitId);
 router.put('/assets/:assetid', assetController.updateAsset);
-
+router.delete('/assets/:assetid', assetController.deleteAsset);
 
 router.post('/companies',
   companyValidateFields,

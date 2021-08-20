@@ -41,14 +41,23 @@ async function findAssetId(req, res) {
 }
 
 async function updateAsset(req, res) {
-  // console.log(req.params);
   const { assetid } = req.params;
   const asset = req.body;
-  // console.log(asset);
   const result = await assetService.updateAsset({assetid, asset});
   res.status(CREATE_STATUS).send(result);
 }
 
+async function deleteAsset(req, res) {
+  const { assetid } = req.params;
+  const result = await assetService.deleteAsset(assetid);
+  res.status(CREATE_STATUS).send(result);
+}
 
-
-module.exports = { createAsset, getAllAssets, findByUnitId, findAssetId, updateAsset };
+module.exports = {
+  createAsset,
+  getAllAssets,
+  findByUnitId,
+  findAssetId,
+  updateAsset,
+  deleteAsset
+};

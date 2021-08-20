@@ -14,7 +14,6 @@ async function getAllAssets(assets) {
 
 async function findByUnitId(unitid) {
   const result = await assetModel.findByUnitId(unitid);
-  console.log('on service', result);
   return result;
 }
 
@@ -23,9 +22,22 @@ async function findAssetId(assetid) {
   return result;
 }
 
-async function updateAsset({assetid, asset}) {
+async function updateAsset({ assetid, asset }) {
   const result = await assetModel.updateAsset({assetid, asset});
   return result;
 }
 
-module.exports = { createAsset, getAllAssets, findByUnitId, findAssetId, updateAsset };
+async function deleteAsset({ assetid }) {
+  const result = await assetModel.deleteAsset(assetid);
+  return result;
+}
+
+
+module.exports = {
+  createAsset,
+  getAllAssets,
+  findByUnitId,
+  findAssetId,
+  updateAsset,
+  deleteAsset
+};
