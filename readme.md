@@ -1,12 +1,57 @@
 
 # API de cadastro de aquipamentos
 
-API para cadastro e gerenciamento de equipamentos indutriais
+Esta API foi desenvolvida para atender a um sistema de manutenção preditiva de ativos na industria.
+Ela disponibiliza o cadastro de industrias, filiais, funcionários e equipamentos com o intuito de fornecer dados que auxiliem na tomada de decisão quanto a manutenção.
+
+## Tecnologias utilizadas
+
+[node](https://nodejs.org/en/)
+[express](https://expressjs.com/)
+[Mongo](https://www.mongodb.com/pt-br)
+
+## Para rodar o projeto
+
+Clone o projeto
+
+```bash
+  git clone git@github.com:enicio/special-goggles.git
+```
+
+Mude para o diretório
+
+```bash
+  cd special-goggles
+```
+
+Crie um arquivo `.env` e informe a porta que deseja utilizar.
+
+##### Por Exemplo
+``` bash
+    PORT=5000
+```
+
+instale as dependencias
+
+```bash
+  yarn install
+```
+
+Inicie o servidor
+
+```bash
+  yarn run dev
+```
 
 
-## API Reference
+## Link
+#### O deploy da api foi realizado na Heroku
 
-### Rotas para os equipamentos 
+[link da api](https://aipsi.herokuapp.com/)
+
+## Referencia de rotas da API
+
+### Rotas para os equipamentos
 
 ### Cadastrar novo equipamento
 ```http
