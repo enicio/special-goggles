@@ -44,17 +44,23 @@ Inicie o servidor
 ```
 
 ### Aprendizados
- Com esse projeto aprendi mais sobre organização de código e o padrão de arquitetura MSC.
+ - Com esse projeto aprendi mais sobre organização de código e o padrão de arquitetura MSC.
+ - Integração do [multer](https://www.npmjs.com/package/multer) com o Amazon S3 para armazenamento das imagens
+ - A ulilização do [Mongo atlas](https://www.mongodb.com/cloud/atlas) para persistencia de dados na nuvem.
 
 ### Possiveis melhorias para o projeto
 - Adicionar a funcionalizade de sockets para atualização em tempo real do status dos equipamento.
 - Criar a estrutura do banco de dados e rotas para registrar chamados de manutenção, relacionando a maquina com problema, a localidade e o funcionário da manutenção.
 
 
-## Link
+## Links Uteis
 #### O deploy da api foi realizado na Heroku
 
 [link da api](https://aipsi.herokuapp.com/)
+
+### Repositório com o frontend disponivel
+[aqui](https://github.com/enicio/special-goggles-front)
+
 
 ## Referencia de rotas da API
 
