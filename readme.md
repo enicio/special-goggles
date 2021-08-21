@@ -49,7 +49,7 @@ Inicie o servidor
  - A ulilização do [Mongo atlas](https://www.mongodb.com/cloud/atlas) para persistencia de dados na nuvem.
 
 ### Possiveis melhorias para o projeto
-- Adicionar a funcionalizade de sockets para atualização em tempo real do status dos equipamento.
+- Adicionar a funcionalizade de sockets para atualização em tempo real do status dos equipamento e notificação de usuários.
 - Criar a estrutura do banco de dados e rotas para registrar chamados de manutenção, relacionando a maquina com problema, a localidade e o funcionário da manutenção.
 
 
@@ -58,7 +58,7 @@ Inicie o servidor
 
 [link da api](https://aipsi.herokuapp.com/)
 
-### Repositório com o frontend disponivel
+### Repositório com o frontend disponível
 [aqui](https://github.com/enicio/special-goggles-front)
 
 
@@ -66,7 +66,7 @@ Inicie o servidor
 
 ### Rotas para os equipamentos
 
-### Cadastrar novo equipamento
+#### Cadastrar novo equipamento
 ```http
     POST /assets
 ```
