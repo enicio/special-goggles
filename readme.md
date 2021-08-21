@@ -8,7 +8,7 @@ API para cadastro e gerenciamento de equipamentos indutriais
 
 ### Rotas para os equipamentos 
 
-#### Cadastrar novo equipamento
+### Cadastrar novo equipamento
 ```http
     POST /assets
 ```
@@ -46,7 +46,7 @@ Deve ser enviado um JSON com o seguinte formato
 #### Listagem por id
 
 ```http
-  GET /assets/${id}
+  GET /assets/:assetid
 ```
 
 | Parameter | Description                       |
@@ -56,7 +56,7 @@ Deve ser enviado um JSON com o seguinte formato
 #### Listagem de equipamentos por filial da empresa
 
 ```http
-  GET /assets/unit/${id}
+  GET /assets/unit/:assetid
 ```
 
 | Parameter | Description                       |
@@ -66,7 +66,7 @@ Deve ser enviado um JSON com o seguinte formato
 #### Atualização do equipamento
 
 ```http
-  PUT /assets/${id}
+  PUT /assets/:assetid
 ```
 
 | Parameter | Description                       |
@@ -92,9 +92,92 @@ Deve ser enviado um JSON com o seguinte formato com os dados que deseja atualiza
 #### Deletar equipamento
 
 ```http
-  DELETE /assets/${id}
+  DELETE /assets/:assetid
 ```
 
 | Parameter | Description                       |
 | :-------- |:-------------------------------- |
 |    `id`    | Retorna um array de objetos com todos os equipamentos da filial  |
+
+### Rotas para empresas
+
+
+#### Cadastrar nova empresa
+```http
+    POST /companies
+```
+
+| Parameter | Description                       |
+| :-------- | :-------------------------------- |
+|     |  Cadastra nova empresa |
+
+
+Deve ser enviado um JSON com o seguinte formato
+
+```json
+{
+"name": "Nome da industria"
+}
+```
+#### Listar todas as  empresas
+
+```http
+  GET /companies
+```
+
+| Parameter | Description                       |
+| :-------- |  :-------------------------------- |
+|           |  Retorna um array com todas as empresas. |
+
+### Rotas para filiais
+
+#### Cadastrar nova filial
+```http
+    POST /units
+```
+
+| Parameter | Description                       |
+| :-------- | :-------------------------------- |
+|     |  Cadastra nova filial |
+
+#### Cadastrar nova filial
+```http
+    GET /units
+```
+
+| Parameter | Description                       |
+| :-------- | :-------------------------------- |
+|     |  Lista todas as filiais. |
+
+### Rotas para usuários
+
+#### Cadastrar novo usuário
+
+```http
+    POST /users
+```
+| Parameter | Description                       |
+| :-------- | :-------------------------------- |
+|     |  Cadastra novo usuário |
+
+Deve ser enviado um JSON com o seguinte formato.
+
+
+```json
+{
+  "email": "emerson@tractian.com.br",
+  "name": "Emerson",
+  "unitId": "1ss",
+  "companyId": "1sa"
+}
+```
+
+#### Lista todos os usuários
+
+```http
+    GET /users
+```
+| Parameter | Description                       |
+| :-------- | :-------------------------------- |
+|     |  Retorna um array de objetos com os dados de todos os usuários |
+ 
