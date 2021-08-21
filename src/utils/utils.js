@@ -11,13 +11,16 @@ async function getAll(collection) {
 
 const PORCENTO =  100;
 
+//As duas funcções abaixo são destinadas a gerar dados simulados para o status e a saude da maquina
+
 function fakeHealth() {
   return Math.random().toFixed(1) * PORCENTO;
 }
 
 function fakeStatus(min, max) {
   const status = ['Running', 'Alerting', 'Stopped'];
-  const position = Math.floor(Math.random() * (max - min)) + min;
+  const position = Math.floor(Math.random() * (max - min + 1 )) + min;
+  console.log(position);
   return status[position];
 }
 
