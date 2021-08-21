@@ -19,7 +19,7 @@ const {
 // const upload = require('../middleware/uploadsRKT');
 
 router.get('/', (req, res) => {
-  res.send('kombi!');
+  res.send('Para mais detalhes acesse https://github.com/enicio/special-goggles ');
 });
 
 router.post('/users',

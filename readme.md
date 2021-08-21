@@ -6,9 +6,9 @@ Ela disponibiliza o cadastro de industrias, filiais, funcionários e equipamento
 
 ## Tecnologias utilizadas
 
-[node](https://nodejs.org/en/)
-[express](https://expressjs.com/)
-[Mongo](https://www.mongodb.com/pt-br)
+- [node](https://nodejs.org/en/)
+- [express](https://expressjs.com/)
+- [Mongo](https://www.mongodb.com/pt-br)
 
 ## Para rodar o projeto
 
@@ -42,6 +42,13 @@ Inicie o servidor
 ```bash
   yarn run dev
 ```
+
+### Aprendizados
+ Com esse projeto aprendi mais sobre organização de código e o padrão de arquitetura MSC.
+
+### Possiveis melhorias para o projeto
+- Adicionar a funcionalizade de sockets para atualização em tempo real do status dos equipamento.
+- Criar a estrutura do banco de dados e rotas para registrar chamados de manutenção, relacionando a maquina com problema, a localidade e o funcionário da manutenção.
 
 
 ## Link
