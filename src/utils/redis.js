@@ -3,7 +3,7 @@ const redis = require('redis');
 if (!process.env.REDIS_URL)
   throw new Error('Invalid REDIS_URL');
 
-const redisClient = redis.createClient(process.env.REDIS_URL, {
+const redisClient = redis.createClient(process.env.REDIS_TLS_URL, {
   tls: {
     rejectUnauthorized: false
   }

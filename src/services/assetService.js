@@ -1,5 +1,4 @@
 require('dotenv').config();
-// const { RedisClient } = require('redis');
 const assetModel = require('../models/assetModels');
 const { redisGetAsync, redisSetAsync } = require('../utils/redis');
 
