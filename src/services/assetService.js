@@ -1,4 +1,9 @@
+require('dotenv').config();
+// const { RedisClient } = require('redis');
 const assetModel = require('../models/assetModels');
+const { redisGetAsync, redisSetAsync } = require('../utils/redis');
+
+const EXPIRATION_TIME_SECONDS = 60;
 
 async function createAsset(assets) {
   const result = await assetModel.createAsset(assets);
@@ -7,8 +12,13 @@ async function createAsset(assets) {
 }
 
 async function getAllAssets(assets) {
+  const redisCache = await redisGetAsync('allAsset');
+  if (redisCache) {
+    return redisCache;
+  }
+
   const result = await assetModel.getAllAssets(assets);
-  console.log('on service', result);
+  await redisSetAsync('allAsset', JSON.stringify(result), EXPIRATION_TIME_SECONDS );
   return result;
 }
 
