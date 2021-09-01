@@ -13,11 +13,13 @@ async function createAsset(assets) {
 async function getAllAssets(assets) {
   const redisCache = await redisGetAsync('allAsset');
   if (redisCache) {
+    console.log('redis');
     return redisCache;
   }
 
   const result = await assetModel.getAllAssets(assets);
   await redisSetAsync('allAsset', JSON.stringify(result), EXPIRATION_TIME_SECONDS );
+  console.log('mongo');
   return result;
 }
 
