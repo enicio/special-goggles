@@ -15,7 +15,6 @@ module.exports = (client) => {
   client.on('message', async function (topic, message) {
     //Called each time a message is received
 
-
     if(message.toString().split('-').length === ARRAY_LENGTH ) {
       console.log('new connection');
       deviceConnection = message.toString().split('-');
@@ -34,7 +33,6 @@ module.exports = (client) => {
       const topicId = topicInf[2].replace(/:/g, '');
       console.log(topicId);
       const result = await sensorModel.updateSensorData(topicId, message.toString());
-      console.log(result);
     }
 
   });
