@@ -1,7 +1,7 @@
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
-var mqtt = require('mqtt');
+const mqtt = require('mqtt');
 require('dotenv').config();
 
 const options = {

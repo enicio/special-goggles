@@ -16,7 +16,7 @@ const {
   unitController,
 } = require('../controllers');
 
-router.get('/', (req, res) => {
+router.get('/', (_req, res) => {
   res.send('Para mais detalhes acesse https://github.com/enicio/special-goggles ');
 });
 
