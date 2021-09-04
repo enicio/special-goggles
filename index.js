@@ -1,8 +1,8 @@
+require('dotenv').config();
 const express = require('express');
 const path = require('path');
 const cors = require('cors');
 const mqtt = require('mqtt');
-require('dotenv').config();
 
 const options = {
   host: 'broker.emqx.io',
@@ -11,21 +11,7 @@ const options = {
 
 const client = mqtt.connect(options);
 
-//setup the callbacks
-client.on('connect', function () {
-  console.log('Connected');
-});
-
-client.on('error', function (error) {
-  console.log(error);
-});
-
-client.on('message', function (topic, message) {
-  //Called each time a message is received
-  console.log('Received message:', topic, message.toString());
-});
-
-client.subscribe('lab/rinoa');
+require('./src/mqtt')(client);
 
 const { PORT } = process.env;
 
