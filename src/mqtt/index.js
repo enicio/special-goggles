@@ -1,6 +1,7 @@
 const sensorModel = require('../models/assetDataModel');
+// const io =  require('../socket');
 
-module.exports = (client) => {
+module.exports = (client, io) => {
 
   const ARRAY_LENGTH = 2;
 
@@ -33,6 +34,7 @@ module.exports = (client) => {
       const topicId = topicInf[2].replace(/:/g, '');
       console.log(message.toString());
       const result = await sensorModel.updateSensorData(topicId, message.toString());
+      io.emit('setTemp', message.toString() );
     }
 
   });

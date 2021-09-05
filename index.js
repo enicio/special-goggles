@@ -27,7 +27,7 @@ require('./src/socket/')(io);
 
 const client = mqtt.connect(options);
 
-require('./src/mqtt')(client);
+require('./src/mqtt')(client, io);
 
 const { PORT } = process.env;
 
