@@ -1,11 +1,10 @@
+const { redisGetAsync } = require('../utils/redis');
 module.exports = (io) => {
   io.on('connection', (socket) => {
     console.log(`conexão ${socket.id}`);
-    socket.on('getTemp', () => {
-      socket.emit('setTemp', 150);
+    socket.on('getTemp', async () => {
+      const temp = await redisGetAsync('temp');
+      socket.emit('setTemp', temp);
     });
   });
 };
-
-
-// module.exports = { socket };
