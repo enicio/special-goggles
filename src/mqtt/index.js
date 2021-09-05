@@ -1,6 +1,7 @@
 const sensorModel = require('../models/assetDataModel');
+const { redisGetAsync, redisSetAsync } = require('../utils/redis');
 // const io =  require('../socket');
-
+const EXPIRATION_TIME_SECONDS = 60;
 module.exports = (client, io) => {
 
   const ARRAY_LENGTH = 2;
@@ -34,6 +35,7 @@ module.exports = (client, io) => {
       const topicId = topicInf[2].replace(/:/g, '');
       console.log(message.toString());
       const result = await sensorModel.updateSensorData(topicId, message.toString());
+      redisSetAsync('temp',message.toString(), EXPIRATION_TIME_SECONDS);
       io.emit('setTemp', message.toString() );
     }
 
