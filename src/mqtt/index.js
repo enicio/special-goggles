@@ -1,7 +1,7 @@
 const sensorModel = require('../models/assetDataModel');
 const { redisGetAsync, redisSetAsync } = require('../utils/redis');
 // const io =  require('../socket');
-const EXPIRATION_TIME_SECONDS = 60;
+const EXPIRATION_TIME_SECONDS = 6000;
 module.exports = (client, io) => {
 
   const ARRAY_LENGTH = 2;
