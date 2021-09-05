@@ -31,7 +31,7 @@ module.exports = (client) => {
     } else {
       const topicInf =  topic.toString().split('/');
       const topicId = topicInf[2].replace(/:/g, '');
-      console.log(topicId);
+      console.log(message.toString());
       const result = await sensorModel.updateSensorData(topicId, message.toString());
     }
 

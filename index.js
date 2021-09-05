@@ -6,7 +6,7 @@ const mqtt = require('mqtt');
 const app = express();
 const http = require('http').createServer(app);
 
-const SOCKET_SERVER_PORT = 8000;
+// const SOCKET_SERVER_PORT = 8000;
 
 const options = {
   host: 'broker.emqx.io',
@@ -20,7 +20,7 @@ const io = require('socket.io')(http, {
   },
 });
 
-io.listen(SOCKET_SERVER_PORT);
+// io.listen(SOCKET_SERVER_PORT);
 
 require('./src/socket/')(io);
 
@@ -38,6 +38,6 @@ app.use(cors());
 app.use('/images/', express.static(path.join(__dirname, 'uploads')));
 app.use(require('./src/routes'));
 
-app.listen(PORT, () => console.log(`ouvindo porta ${PORT}!`));
+http.listen(PORT, () => console.log(`ouvindo porta ${PORT}!`));
 
 module.exports = app;
