@@ -19,22 +19,29 @@ module.exports = (client, io) => {
 
     if(message.toString().split('-').length === ARRAY_LENGTH ) {
       console.log('new connection');
-      deviceConnection = message.toString().split('-');
-      const deviceId = deviceConnection[1].replace(/:/g, '');
-      console.log(deviceId);
+      // deviceConnection = message.toString().split('-');
+      // const deviceId = deviceConnection[1].replace(/:/g, '');
+      // console.log(deviceId);
 
-      const newDevice = {
-        _id: deviceId,
-        values: []
-      };
+      // const newDevice = {
+      //   _id: deviceId,
+      //   values: []
+      // };
 
-      const result = await sensorModel.createSensor(newDevice);
-      console.log('local', result);
+      // const result = await sensorModel.createSensor(newDevice);
+      // console.log('local', result);
     } else {
       const topicInf =  topic.toString().split('/');
       const topicId = topicInf[2].replace(/:/g, '');
       console.log(message.toString());
-      const result = await sensorModel.updateSensorData(topicId, message.toString());
+      const sensorData = {
+        deviceId: topicId,
+        sensor1: message.toString(),
+        createAt: Date()
+      };
+
+      const result = await sensorModel.createSensor(sensorData);
+      // const result = await sensorModel.updateSensorData(topicId, message.toString());
       redisSetAsync('temp',message.toString(), EXPIRATION_TIME_SECONDS);
       io.emit('setTemp', message.toString() );
     }
