@@ -1,5 +1,6 @@
 const connection = require('../models/connection');
 async function getAll(collection) {
+  console.log('get all');
   try {
     const result = await connection()
       .then((db) => db.collection(collection).find().toArray());

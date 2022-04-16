@@ -11,7 +11,9 @@ async function createUser(req, res) {
 }
 
 async function getAllUsers(req, res) {
+  console.log('ops users');
   const result = await userService.getAllUsers();
+  console.log('users result');
   res.status(RESPONSE_STATUS).send(result);
 }
 

@@ -15,7 +15,9 @@ async function createAsset(assets) {
 }
 
 async function getAllAssets() {
+  console.log('aqui mongo');
   const result =  getAll('assets');
+  console.log(result);
   return result;
 }
 

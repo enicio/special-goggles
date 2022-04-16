@@ -15,13 +15,14 @@ async function findByEmail(email) {
 }
 
 async function getAllUsers() {
-  const redisCache = await redisGetAsync('allUsers');
-  if (redisCache) {
-    console.log('redis');
-    return redisCache;
-  }
+  // const redisCache = await redisGetAsync('allUsers');
+  // if (redisCache) {
+  //   console.log('redis');
+  //   return redisCache;
+  // }
 
   const result = await userModel.getAllUsers();
+  console.log('ate aqui');
   await redisSetAsync('allUsers', JSON.stringify(result), EXPIRATION_TIME_SECONDS );
   console.log('mongo');
   return result;

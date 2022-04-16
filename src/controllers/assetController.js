@@ -25,6 +25,7 @@ async function createAsset(req, res) {
 
 async function getAllAssets(req, res) {
   const result = await assetService.getAllAssets();
+  console.log(result);
   res.status(RESPONSE_STATUS).send(result);
 }
 
