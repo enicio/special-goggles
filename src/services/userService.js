@@ -1,5 +1,5 @@
 const userModel = require('../models/userModels');
-const {redisSetAsync} = require('../utils/redis');
+const {redisSetAsync, redisGetAsync} = require('../utils/redis');
 
 const EXPIRATION_TIME_SECONDS = 60;
 
@@ -15,11 +15,11 @@ async function findByEmail(email) {
 }
 
 async function getAllUsers() {
-  // const redisCache = await redisGetAsync('allUsers');
-  // if (redisCache) {
-  //   console.log('redis');
-  //   return redisCache;
-  // }
+  const redisCache = await redisGetAsync('allUsers');
+  if (redisCache) {
+    console.log('redis');
+    return redisCache;
+  }
 
   const result = await userModel.getAllUsers();
   console.log('ate aqui');
