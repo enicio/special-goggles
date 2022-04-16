@@ -1,36 +1,39 @@
 const redis = require('redis');
+const { promisifyAll } = require('bluebird');
+promisifyAll(redis);
 
 if (!process.env.REDIS_TLS_URL)
   throw new Error('Invalid REDIS_URL');
 
-const redisClient = redis.createClient(process.env.REDIS_TLS_URL, {
-  tls: {
-    rejectUnauthorized: false
-  }
+// const redisClient = redis.createClient(process.env.REDIS_TLS_URL, {
+//   tls: {
+//     rejectUnauthorized: false
+//   }
+// });
+
+const redisClient = redis.createClient({
+  host: 'localhost',
+  password: ''
 });
 
-const redisGetAsync = (key) => {
+redisClient.connect();
+
+redisClient.on('error', err => {
+  console.log('Error ' + err);
+});
+
+const redisGetAsync = async (key) => {
   console.log('get redis');
-  return new Promise((resolve, reject) => {
-    redisClient.get(key, (err, value) => {
-      if (err)
-        reject(err);
-      else
-        resolve(value);
-    });
-  });
+  // return new Promise((resolve, reject) => {
+  await redisClient.get(key);
+  // });
 };
 
-const redisSetAsync = (key, value, expireInSeconds) => {
-  return new Promise((resolve, reject) => {
-    console.log('set redis');
-    redisClient.set(key, value, 'EX', expireInSeconds, (err) => {
-      if (err)
-        reject(err);
-      else
-        resolve();
-    });
-  });
+const redisSetAsync = async(key, value, expireInSeconds) => {
+  // return new Promise((resolve, reject) => {
+  console.log('set redis');
+  await redisClient.set(key, value, 'EX', expireInSeconds);
+  // });
 };
 
 module.exports = { redisClient, redisGetAsync, redisSetAsync};

@@ -1,5 +1,5 @@
 const userModel = require('../models/userModels');
-const { redisGetAsync, redisSetAsync } = require('../utils/redis');
+const {redisSetAsync} = require('../utils/redis');
 
 const EXPIRATION_TIME_SECONDS = 60;
 
@@ -24,6 +24,7 @@ async function getAllUsers() {
   const result = await userModel.getAllUsers();
   console.log('ate aqui');
   await redisSetAsync('allUsers', JSON.stringify(result), EXPIRATION_TIME_SECONDS );
+  // await kombiRedis(result);
   console.log('mongo');
   return result;
 }
