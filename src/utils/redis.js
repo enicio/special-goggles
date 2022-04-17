@@ -6,7 +6,7 @@ if (!process.env.REDIS_TLS_URL)
   throw new Error('Invalid REDIS_URL');
 
 const redisClient = redis.createClient({
-  url: 'redis://redis:6379'
+  url: process.env.REDIS_TLS_URL
 });
 
 redisClient.connect();
