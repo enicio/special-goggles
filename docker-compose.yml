@@ -1,0 +1,39 @@
+version: '3.6'
+services:
+  web:
+    env_file:
+      - web.env
+    build:
+      context: ./
+      dockerfile: Dockerfile
+      args:
+        versao: 1
+    ports:
+      - "5000:5000"
+    depends_on:
+      - redis
+      - db
+    links:
+      - db
+      - redis
+  redis:
+    image: redis/redis-stack-server
+    restart: always
+    volumes:
+      - cache:/data
+    environment:
+      - ALLOW_EMPTY_PASSWORD=yes
+    ports:
+      - 6379:6379
+  db:
+    image: mongo
+    container_name: mongo
+    environment:
+      - MONGO_INITDB_DATABASE=aipsi
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=admin
+    ports:
+      - 27017:27017
+volumes:
+  cache:
+    driver: local
