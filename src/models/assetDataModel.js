@@ -14,7 +14,6 @@ async function createSensor(newDevice) {
 }
 
 async function updateSensorData(id, value) {
-  // console.log('Model', assetid);
   try {
     const update = await connection()
       .then((db) => db.collection('sensorData')

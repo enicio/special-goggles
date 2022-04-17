@@ -15,9 +15,7 @@ async function createAsset(assets) {
 }
 
 async function getAllAssets() {
-  console.log('aqui mongo');
   const result =  getAll('assets');
-  console.log(result);
   return result;
 }
 
@@ -46,7 +44,6 @@ async function findAssetId(assetid) {
 };
 
 async function updateAsset({ assetid, asset}) {
-  console.log('Model', assetid);
   try {
     const update = await connection()
       .then((db) => db.collection('assets')

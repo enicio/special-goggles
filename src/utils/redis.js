@@ -5,26 +5,26 @@ promisifyAll(redis);
 if (!process.env.REDIS_TLS_URL)
   throw new Error('Invalid REDIS_URL');
 
-const redisClient = redis.createClient(process.env.REDIS_TLS_URL, {
-  tls: {
-    rejectUnauthorized: false
-  }
+const redisClient = redis.createClient({
+  url: 'redis://redis:6379'
 });
 
 redisClient.connect();
 
 redisClient.on('error', err => {
-  console.log('Error ' + err);
+  console.log('Error from Redis ' + err);
 });
 
+
 const redisGetAsync = async (key) => {
-  console.log('get redis');
   return await redisClient.get(key);
 };
 
 const redisSetAsync = async(key, value, expireInSeconds) => {
-  console.log('set redis 2');
-  return await redisClient.set(key, value, 'EX', expireInSeconds);
+  return await redisClient.set(key, value, {
+    EX: expireInSeconds,
+    NX: true
+  });
 };
 
-module.exports = { redisClient, redisGetAsync, redisSetAsync};
+module.exports = { redisGetAsync, redisSetAsync};

@@ -13,9 +13,9 @@ let db = null;
 const connection = () => {
   return db
     ? Promise.resolve(db)
-    : MongoClient.connect(MONGO_DB_URL, OPTIONS)
+    : MongoClient.connect("mongodb://admin:admin@db", OPTIONS)
       .then((conn) => {
-        db =  conn.db(DB_NAME);
+        db =  conn.db("aipsi");
         return db;
       });
 };

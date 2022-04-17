@@ -25,7 +25,6 @@ async function createAsset(req, res) {
 
 async function getAllAssets(req, res) {
   const result = await assetService.getAllAssets();
-  console.log(result);
   res.status(RESPONSE_STATUS).send(result);
 }
 
@@ -37,7 +36,6 @@ async function findByUnitId(req, res) {
 
 async function findAssetId(req, res) {
   const { assetid } = req.params;
-  console.log(assetid);
   const result = await assetService.findAssetId(assetid);
   res.status(RESPONSE_STATUS).send(result);
 }

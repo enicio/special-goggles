@@ -7,7 +7,7 @@ module.exports = (client, io) => {
   const ARRAY_LENGTH = 2;
 
   client.on('connect', function () {
-    console.log('Connected');
+    console.log('Connected MQTT');
   });
 
   client.on('error', function (error) {

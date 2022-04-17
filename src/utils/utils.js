@@ -1,6 +1,5 @@
 const connection = require('../models/connection');
 async function getAll(collection) {
-  console.log('get all');
   try {
     const result = await connection()
       .then((db) => db.collection(collection).find().toArray());
@@ -21,7 +20,6 @@ function fakeHealth() {
 function fakeStatus(min, max) {
   const status = ['Running', 'Alerting', 'Stopped'];
   const position = Math.floor(Math.random() * (max - min + 1 )) + min;
-  console.log(position);
   return status[position];
 }
 

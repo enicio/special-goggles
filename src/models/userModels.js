@@ -24,7 +24,6 @@ async function findByEmail(email) {
 };
 
 async function getAllUsers() {
-  console.log('User models ');
   const result =  getAll('users');
   return result;
 }
